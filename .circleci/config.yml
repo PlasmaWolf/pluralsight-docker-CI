@@ -1,11 +1,24 @@
+
+version: 2.0
+jobs:
+ build:
+   docker:
+     - image: alpine:3.7
+   steps:
+     - run:
+         name: The First Step
+         command: |
+           -$DOCKER_HUB_TRIGGER
+
 # The deployment section should be excluded until
 # it is explicitly included in module 5
-deployment:
-  dockerhub:
-    branch: master
-    commands:
-     - $DOCKER_HUB_TRIGGER
-
-test:
-  override:
-    - mocha
+# old config file unedited
+# deployment:
+#   dockerhub:
+#     branch: master
+#     commands:
+#      - $DOCKER_HUB_TRIGGER
+#
+# test:
+#   override:
+#     - mocha
