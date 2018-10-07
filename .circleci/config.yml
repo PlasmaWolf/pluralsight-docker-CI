@@ -7,7 +7,11 @@ jobs:
    docker:
      - image: alpine:3.7
    steps:
+     # checkout branch
+     - checkout
      - run:
+         name: The Zeroeth steps
+         npm install .
          name: The First Step
          command: |
            echo 'Hello World!'
