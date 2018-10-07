@@ -11,8 +11,8 @@ jobs:
          command: |
            echo 'Hello World!'
            echo 'This is the delivery pipeline'
-           source $DOCKER_HUB_TRIGGER
-
+           bash -c "$DOCKER_HUB_TRIGGER"
+# source $DOCKER_HUB_TRIGGER
 
 # deployment:
 #   dockerhub:
