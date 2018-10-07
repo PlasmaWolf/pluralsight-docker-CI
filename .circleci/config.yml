@@ -10,6 +10,16 @@ jobs:
      # checkout branch
      - checkout
      - run:
+                 deployment:
+                   dockerhub:
+                     branch: master
+                     commands:
+                      - $DOCKER_HUB_TRIGGER
+
+                 test:
+                   override:
+                     - mocha
+     - run:
          name: The First Step
          command: |
            echo 'Hello World!'
@@ -20,15 +30,7 @@ jobs:
            echo 'DOCKER image sent to DOCKERHUB'
 
 
-          deployment:
-            dockerhub:
-              branch: master
-              commands:
-               - $DOCKER_HUB_TRIGGER
 
-          test:
-            override:
-              - mocha
 #          bash -c "$DOCKER_HUB_TRIGGER"
 # source $DOCKER_HUB_TRIGGER
 
