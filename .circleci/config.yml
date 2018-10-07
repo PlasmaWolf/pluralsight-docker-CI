@@ -5,7 +5,7 @@ version: 2.0
 jobs:
  build:
    docker:
-     - image: alpine:3.7
+     - image: node:8.12
    steps:
      # checkout branch
      - checkout
@@ -18,7 +18,7 @@ jobs:
      - run:
        name: The First step BUILD
        command: |
-        sh -c "$docker build Dockerfile"
+        $ docker build Dockerfile
 
      - run:
          name: The Second Step
