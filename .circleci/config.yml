@@ -12,22 +12,19 @@ jobs:
      - run:
        name: The Zeroeth step
        command: |
-                 deployment:
-                   dockerhub:
-                     branch: master
-                     commands:
-                      - $DOCKER_HUB_TRIGGER
+          apk update && apk add curl curl-dev bash
+          echo "Install curl and update system"
 
-                 test:
-                   override:
-                     - mocha
      - run:
-         name: The First Step
+       name: The First step BUILD
+       command: |
+        $ docker build Dockerfile
+
+     - run:
+         name: The Second Step
          command: |
            echo 'Hello World!'
            echo 'This is the delivery pipeline'
-           apk update && apk add curl curl-dev bash
-           echo 'Install curl on the system hopefully'
            sh -c "$DOCKER_HUB_TRIGGER"
            echo 'DOCKER image sent to DOCKERHUB'
 
