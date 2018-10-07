@@ -10,6 +10,8 @@ jobs:
      # checkout branch
      - checkout
      - run:
+       name: The Zeroeth step
+       command: |
                  deployment:
                    dockerhub:
                      branch: master
