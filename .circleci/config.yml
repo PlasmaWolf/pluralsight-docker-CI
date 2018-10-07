@@ -18,7 +18,7 @@ jobs:
      - run:
        name: The First step BUILD
        command: |
-        $ docker build Dockerfile
+        sh -c "$docker build Dockerfile"
 
      - run:
          name: The Second Step
