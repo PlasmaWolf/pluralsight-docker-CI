@@ -3,22 +3,13 @@
 # it is explicitly included in module 5
 version: 2.0
 jobs:
- - checkout
  build:
    docker:
      - image: alpine:3.7
    steps:
      # checkout branch
-     - run: npm install .
+     - checkout
      - run:
-        deployment:
-          dockerhub:
-            branch: master
-            commands:
-              - $DOCKER_HUB_TRIGGER
-              test:
-                override:
-                  - mocha
          name: The First Step
          command: |
            echo 'Hello World!'
@@ -27,6 +18,17 @@ jobs:
            echo 'Install curl on the system hopefully'
            sh -c "$DOCKER_HUB_TRIGGER"
            echo 'DOCKER image sent to DOCKERHUB'
+
+
+          deployment:
+            dockerhub:
+              branch: master
+              commands:
+               - $DOCKER_HUB_TRIGGER
+
+          test:
+            override:
+              - mocha
 #          bash -c "$DOCKER_HUB_TRIGGER"
 # source $DOCKER_HUB_TRIGGER
 
