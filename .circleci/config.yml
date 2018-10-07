@@ -15,6 +15,7 @@ jobs:
            apk update && apk add curl curl-dev bash
            echo 'Install curl on the system hopefully'
            sh -c "$DOCKER_HUB_TRIGGER"
+           echo 'DOCKER image sent to DOCKERHUB'
 #          bash -c "$DOCKER_HUB_TRIGGER"
 # source $DOCKER_HUB_TRIGGER
 
