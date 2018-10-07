@@ -9,13 +9,13 @@ jobs:
    steps:
      # checkout branch
      - checkout
-     -run:
-        name: The Second Step
-        command: |
-          echo 'Hello World!'
-          echo 'This is the delivery pipeline'
-          sh -c "$DOCKER_HUB_TRIGGER"
-          echo 'DOCKER image sent to DOCKERHUB'
+     - run:
+         name: The Second Step
+         command: |
+           echo 'Hello World!'
+           echo 'This is the delivery pipeline'
+           sh -c "$DOCKER_HUB_TRIGGER"
+           echo 'DOCKER image sent to DOCKERHUB'
      # - run:
      #   name: The Zeroeth step
      #   command: |
