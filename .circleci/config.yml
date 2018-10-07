@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # The deployment section should be excluded until
 # it is explicitly included in module 5
 version: 2.0
@@ -12,7 +12,8 @@ jobs:
          command: |
            echo 'Hello World!'
            echo 'This is the delivery pipeline'
-           bash -c "$DOCKER_HUB_TRIGGER"
+           sh -c "$DOCKER_HUB_TRIGGER"
+#          bash -c "$DOCKER_HUB_TRIGGER"
 # source $DOCKER_HUB_TRIGGER
 
 # deployment:
