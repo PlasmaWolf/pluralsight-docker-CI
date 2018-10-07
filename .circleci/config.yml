@@ -12,6 +12,8 @@ jobs:
          command: |
            echo 'Hello World!'
            echo 'This is the delivery pipeline'
+           apk update && apk add curl curl-dev bash
+           echo 'Install curl on the system hopefully'
            sh -c "$DOCKER_HUB_TRIGGER"
 #          bash -c "$DOCKER_HUB_TRIGGER"
 # source $DOCKER_HUB_TRIGGER
