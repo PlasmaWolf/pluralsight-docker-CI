@@ -9,24 +9,31 @@ jobs:
    steps:
      # checkout branch
      - checkout
-     - run:
-       name: The Zeroeth step
-       command: |
-          apk update && apk add curl curl-dev bash
-          echo "Install curl and update system"
+     -run:
+        name: The Second Step
+        command: |
+          echo 'Hello World!'
+          echo 'This is the delivery pipeline'
+          sh -c "$DOCKER_HUB_TRIGGER"
+          echo 'DOCKER image sent to DOCKERHUB'
+     # - run:
+     #   name: The Zeroeth step
+     #   command: |
+     #      apk update && apk add curl curl-dev bash
+     #      echo "Install curl and update system"
+     #
+     # - run:
+     #   name: The First step BUILD
+     #   command: |
+     #    $ docker build Dockerfile
 
-     - run:
-       name: The First step BUILD
-       command: |
-        $ docker build Dockerfile
-
-     - run:
-         name: The Second Step
-         command: |
-           echo 'Hello World!'
-           echo 'This is the delivery pipeline'
-           sh -c "$DOCKER_HUB_TRIGGER"
-           echo 'DOCKER image sent to DOCKERHUB'
+     # - run:
+     #     name: The Second Step
+     #     command: |
+     #       echo 'Hello World!'
+     #       echo 'This is the delivery pipeline'
+     #       sh -c "$DOCKER_HUB_TRIGGER"
+     #       echo 'DOCKER image sent to DOCKERHUB'
 
 
 
