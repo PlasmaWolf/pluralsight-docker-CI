@@ -31,6 +31,7 @@ jobs:
          command: |
             docker login -u$DOCKERHUB_LOGIN -p$DOCKERHUB_PASSWORD
             docker push plasmawolf/pluralsight-docker-ci:$CIRCLE_SHA1
+     #just an additional change to test pushing to DockerHub
      # - run:
      #   name: The Zeroeth step
      #   command: |
